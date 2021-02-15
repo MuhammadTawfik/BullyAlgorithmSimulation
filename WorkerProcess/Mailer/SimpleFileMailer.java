@@ -8,14 +8,15 @@ import java.io.FileWriter;
 public class SimpleFileMailer implements IMailerClient {
 
   private String _inboxFilePath;
-	private String baseInboxDirectory = "/home/tawfik/BullyAlgorithmSimulation/data/mails/";
+	private String _baseInboxDirectory;
 
 
-	public SimpleFileMailer(String inboxID) {
-		_inboxFilePath = baseInboxDirectory + inboxID + ".inbox" ;
+	public SimpleFileMailer( String baseInboxDirectory, String inboxID) {
+     _baseInboxDirectory = baseInboxDirectory;
+		_inboxFilePath = _baseInboxDirectory + inboxID + ".inbox" ;
 	}
   public void send(IMessage message) {
-  	String receiverInbox = baseInboxDirectory + message.receiver() + ".inbox";
+  	String receiverInbox = _baseInboxDirectory + message.receiver() + ".inbox";
   	try {
       FileWriter myWriter = new FileWriter(_inboxFilePath, true);
       myWriter.write(message.toString() + "\n");
