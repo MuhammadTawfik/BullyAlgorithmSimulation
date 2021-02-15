@@ -20,7 +20,7 @@ public class WorkerProcess {
 // System.out.println("eeeeeeeeee" + f.listRegistered());
 // (new SimpleMessageHandler(logger)).handle(message);
 
-    LeaderHealthChecker k = new LeaderHealthChecker(leaderStatusManager, logger);
+    LeaderChildPinger k = new LeaderChildPinger(leaderStatusManager, logger, mailer, registry);
     k.start();
     // Thread t1 =new Thread(k);
     // t1.start(); 

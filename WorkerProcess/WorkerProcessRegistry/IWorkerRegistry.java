@@ -1,7 +1,7 @@
 package WorkerProcessRegistry;
 
 
-interface IWorkerRegistry {
+public interface IWorkerRegistry {
   public void register(String processID);
   public  String[] listRegistered();
 }

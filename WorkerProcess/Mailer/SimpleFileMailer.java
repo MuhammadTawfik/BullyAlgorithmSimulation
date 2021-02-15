@@ -18,7 +18,7 @@ public class SimpleFileMailer implements IMailerClient {
   public void send(IMessage message) {
   	String receiverInbox = _baseInboxDirectory + message.receiver() + ".inbox";
   	try {
-      FileWriter myWriter = new FileWriter(_inboxFilePath, true);
+      FileWriter myWriter = new FileWriter(receiverInbox, true);
       myWriter.write(message.toString() + "\n");
       myWriter.close();
     } catch (IOException e) {

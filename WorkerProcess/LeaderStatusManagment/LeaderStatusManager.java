@@ -7,7 +7,8 @@ public class LeaderStatusManager implements ILeaderStatusManager {
 	private boolean electionRunning = false;
 	private int _leaderDelayThreshold = 2000;
   public boolean iAmLeader(){
-  	return (leaderID == (ProcessHandle.current().pid() + ""));
+  	// return (leaderID == (ProcessHandle.current().pid() + ""));
+    return true;
   }
 
   public boolean leaderExists(){
