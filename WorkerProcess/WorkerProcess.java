@@ -4,7 +4,7 @@ import Mailer.SimpleStringMessage;
 import WorkerProcessRegistry.FileWorkerRegistry;
 import LeaderStatusManagment.*;
 import MessageHandler.*;
-
+import BackgroundWorkers.*;
 public class WorkerProcess {
 	public static void main(String[] args) {
 		SimpleFileLogger logger = new SimpleFileLogger("/home/tawfik/BullyAlgorithmSimulation/data/logs/" + ProcessHandle.current().pid() + "");
@@ -19,5 +19,9 @@ public class WorkerProcess {
 
 // System.out.println("eeeeeeeeee" + f.listRegistered());
 // (new SimpleMessageHandler(logger)).handle(message);
+
+    LeaderHealthChecker k = new LeaderHealthChecker(leaderStatusManager, logger);
+    Thread t1 =new Thread(k);
+    t1.start(); 
 	}
 }
