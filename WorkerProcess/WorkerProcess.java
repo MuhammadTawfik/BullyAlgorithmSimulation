@@ -5,8 +5,8 @@ import WorkerProcessRegistry.FileWorkerRegistry;
 import MessageHandler.*;
 public class WorkerProcess {
 	public static void main(String[] args) {
-		// SimpleFileLogger logger = new SimpleFileLogger("/home/tawfik/BullyAlgorithmSimulation/data/logs");
-    // logger.info(ProcessHandle.current().pid() + "");
+		SimpleFileLogger logger = new SimpleFileLogger("/home/tawfik/BullyAlgorithmSimulation/data/logs/" + ProcessHandle.current().pid() + "");
+    logger.info(ProcessHandle.current().pid() + "");
 
     SimpleFileMailer mailer = new SimpleFileMailer(ProcessHandle.current().pid() + "");
 SimpleStringMessage message = new SimpleStringMessage("anything for now", ProcessHandle.current().pid() + "" , "content", "test");
@@ -15,6 +15,6 @@ FileWorkerRegistry f = FileWorkerRegistry.getInstance();
 f.register(ProcessHandle.current().pid() + "");
 
 System.out.println("eeeeeeeeee" + f.listRegistered());
-(new SimpleMessageHandler()).handle(message);
+(new SimpleMessageHandler(logger)).handle(message);
 	}
 }
