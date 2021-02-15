@@ -3,7 +3,7 @@ package BackgroundWorkers;
 import LeaderStatusManagment.*;
 import Logger.*;
 
-public class LeaderHealthChecker implements IBackgroundWorker {
+public class LeaderHealthChecker extends IBackgroundWorker {
 
 	private ILeaderStatusManager _lsm;
   	private ILogger _logger;
@@ -33,4 +33,5 @@ public class LeaderHealthChecker implements IBackgroundWorker {
 			}
 		}
 	}  
+ 
 }

@@ -21,7 +21,8 @@ public class WorkerProcess {
 // (new SimpleMessageHandler(logger)).handle(message);
 
     LeaderHealthChecker k = new LeaderHealthChecker(leaderStatusManager, logger);
-    Thread t1 =new Thread(k);
-    t1.start(); 
+    k.start();
+    // Thread t1 =new Thread(k);
+    // t1.start(); 
 	}
 }

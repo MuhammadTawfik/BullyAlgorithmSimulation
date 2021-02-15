@@ -1,5 +1,8 @@
 package BackgroundWorkers;
 
-public interface IBackgroundWorker extends Runnable {
-
+public abstract class IBackgroundWorker implements Runnable {
+	public void start() {
+		Thread t =new Thread(this);
+    	t.start(); 
+	} 
 }
