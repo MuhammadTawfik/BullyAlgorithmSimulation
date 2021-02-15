@@ -20,6 +20,9 @@ public class LeaderStatusManager implements ILeaderStatusManager {
   public String getLeader() {
   	return leaderID;
   }
+  public void setLeader(String leader){
+    leaderID = leader;
+  }
 
   public void setLastSeen(java.util.Date lastSeen){
   	_LeaderlastSeen = lastSeen;
