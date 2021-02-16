@@ -17,13 +17,11 @@ import java.util.Arrays;
 public class Inbox implements Runnable
 {
 
-    private IMessageHandler _handler;
     private String _inboxFilePath;
     private int timeToCheckInbox = 100;
 
-    public Inbox( String inboxFilePath, IMessageHandler handler)
+    public Inbox( String inboxFilePath)
     {
-        _handler = handler;
         _inboxFilePath = inboxFilePath; // "/home/tawfik/BullyAlgorithmSimulation/data/mails/18740.inbox";
     }
 

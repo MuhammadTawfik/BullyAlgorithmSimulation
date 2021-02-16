@@ -1,7 +1,10 @@
 package MessageHandler.MessageTypeHandlers;
 
-import Mailer.IMessage;
+import LeaderStatusManagment.*;
 import Logger.*;
+import Mailer.*;
+import WorkerProcessRegistry.*;
+
 public class MessageTypeLeaderAck implements IMessageTypeHandler
 {
 

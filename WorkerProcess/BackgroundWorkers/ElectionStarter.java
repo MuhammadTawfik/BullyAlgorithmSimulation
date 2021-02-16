@@ -51,7 +51,9 @@ public class ElectionStarter extends IBackgroundWorker
             if(_lsm.isElectionRunning())
             {
                 _lsm.setElectionStatus(false);
-                // do leader work
+                LeaderChildPinger lcp = new LeaderChildPinger(_lsm, _logger, _mailer, _registry);
+                lcp.start();
+                _logger.info("I am the Leader now : " + _lsm.getLeader());
             }
         }
     }

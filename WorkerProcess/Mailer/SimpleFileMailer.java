@@ -5,22 +5,19 @@ import java.io.File;
 import java.io.IOException;
 import java.io.FileWriter;
 
-import MessageHandler.IMessageHandler;
 
 public class SimpleFileMailer implements IMailerClient
 {
 
     private String _inboxFilePath;
     private String _baseInboxDirectory;
-    private IMessageHandler _handler;
 
 
-    public SimpleFileMailer( String baseInboxDirectory, String inboxID, IMessageHandler handler)
+    public SimpleFileMailer( String baseInboxDirectory, String inboxID)
     {
         _baseInboxDirectory = baseInboxDirectory;
         _inboxFilePath = _baseInboxDirectory + inboxID + ".inbox" ;
-        _handler = handler;
-        Inbox inbox = new Inbox(_inboxFilePath, _handler);
+        Inbox inbox = new Inbox(_inboxFilePath);
         inbox.start();
     }
     public void send(IMessage message)

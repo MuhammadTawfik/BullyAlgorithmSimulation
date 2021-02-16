@@ -45,10 +45,4 @@ public class LeaderChildPinger extends IBackgroundWorker
             }
         }
     }
-
-    public void start()
-    {
-        Thread t1 = new Thread(this);
-        t1.start();
-    }
 }
