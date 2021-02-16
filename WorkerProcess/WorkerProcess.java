@@ -11,9 +11,12 @@ public class WorkerProcess {
     LeaderStatusManager leaderStatusManager = new LeaderStatusManager();
     // logger.info(ProcessHandle.current().pid() + "");
 
-    SimpleFileMailer mailer = new SimpleFileMailer("/home/tawfik/BullyAlgorithmSimulation/data/mails/",ProcessHandle.current().pid() + "");
+    SimpleMessageHandler smh = new SimpleMessageHandler(logger);
+
+    SimpleFileMailer mailer = new SimpleFileMailer("/home/tawfik/BullyAlgorithmSimulation/data/mails/",ProcessHandle.current().pid() + "", smh);
 // SimpleStringMessage message = new SimpleStringMessage("anything for now", ProcessHandle.current().pid() + "" , "content", "test");
   // mailer.send(message);
+
     FileWorkerRegistry registry = FileWorkerRegistry.getInstance();
     registry.register(ProcessHandle.current().pid() + "");
 
