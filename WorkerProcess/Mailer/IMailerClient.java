@@ -1,6 +1,7 @@
 package Mailer;
 
 
-public interface IMailerClient {
-  public void send(IMessage message);
+public interface IMailerClient
+{
+    public void send(IMessage message);
 }
