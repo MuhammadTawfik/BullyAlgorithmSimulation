@@ -12,7 +12,7 @@ public class ElectionStarter extends IBackgroundWorker
     private ILogger _logger;
     private IMailerClient _mailer;
     private IWorkerRegistry _registry;
-    private int timeToFinishElections = 500;
+    private int timeToFinishElections = 2000;
 
     public ElectionStarter(ILeaderStatusManager lsm, ILogger logger, IMailerClient mailer, IWorkerRegistry registry)
     {
@@ -56,11 +56,5 @@ public class ElectionStarter extends IBackgroundWorker
                 _logger.info("I am the Leader now : " + _lsm.getLeader());
             }
         }
-    }
-
-    public void start()
-    {
-        Thread t1 = new Thread(this);
-        t1.start();
     }
 }

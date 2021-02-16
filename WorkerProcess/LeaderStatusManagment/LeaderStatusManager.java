@@ -9,8 +9,7 @@ public class LeaderStatusManager implements ILeaderStatusManager
     private int _leaderDelayThreshold = 2000;
     public boolean iAmLeader()
     {
-        // return (leaderID == (ProcessHandle.current().pid() + ""));
-        return true;
+        return (Integer.parseInt(leaderID) == ProcessHandle.current().pid());
     }
 
     public boolean leaderExists()

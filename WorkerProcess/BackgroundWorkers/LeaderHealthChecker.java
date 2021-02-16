@@ -18,6 +18,8 @@ public class LeaderHealthChecker extends IBackgroundWorker
     {
         _lsm = lsm;
         _logger = logger;
+        _mailer = mailer;
+        _registry = registry;
     }
 
     public void run()
@@ -48,7 +50,7 @@ public class LeaderHealthChecker extends IBackgroundWorker
                 _logger.info("Starting Elections");
                 ElectionStarter es = new ElectionStarter(_lsm, _logger, _mailer, _registry);
                 es.start();
-                
+
             }
         }
 

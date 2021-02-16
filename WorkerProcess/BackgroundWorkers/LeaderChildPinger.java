@@ -12,7 +12,7 @@ public class LeaderChildPinger extends IBackgroundWorker
     private ILogger _logger;
     private IMailerClient _mailer;
     private IWorkerRegistry _registry;
-    private int timeBetweenPings = 500;
+    private int timeBetweenPings = 5000;
 
     public LeaderChildPinger(ILeaderStatusManager lsm, ILogger logger, IMailerClient mailer, IWorkerRegistry registry)
     {
@@ -30,10 +30,16 @@ public class LeaderChildPinger extends IBackgroundWorker
             {
                 String [] followers = _registry.listRegistered();
                 System.out.println(followers);
+                long selfID =  ProcessHandle.current().pid();
+
                 for(String follower : followers)
                 {
-                    SimpleStringMessage message = new SimpleStringMessage(ProcessHandle.current().pid() + "", follower,  "", "LeaderAck");
-                    _mailer.send(message);
+                    if(Integer.parseInt(follower) < selfID)
+                    {
+                        SimpleStringMessage message = new SimpleStringMessage(ProcessHandle.current().pid() + "", follower,  "", "LeaderAck");
+                        _mailer.send(message);
+                    }
+
                 }
 
                 try
