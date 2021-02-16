@@ -48,4 +48,8 @@ public class SimpleStringMessage implements IMessage
     {
         return _type;
     }
+
+    public java.util.Date date() {
+      return _date;
+    }
 }

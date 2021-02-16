@@ -20,10 +20,9 @@ public class MessageTypeLeadershipRecAck implements IMessageTypeHandler
     }
     public void handle(IMessage message)
     {
-        // String [] followers = _registry.listRegistered();
-        // long selfID =  ProcessHandle.current().pid();
-        // _lsm.setLeader(selfID + "");
-        if(Integer.parseInt(message.sender()) > Integer.parseInt(_lsm.getLeader())){
+
+        if(Integer.parseInt(message.sender()) > Integer.parseInt(_lsm.getLeader()))
+        {
             _lsm.setLeader(message.sender());
         }
         _lsm.setElectionStatus(false);

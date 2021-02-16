@@ -31,13 +31,13 @@ public class SimpleMessageHandler implements IMessageHandler
         switch(type)
         {
         case "LeaderAck":
-            return new MessageTypeLeaderAck(_logger);
+            return new MessageTypeLeaderAck(_lsm, _logger);
         case "ProbableLeader":
             return new MessageTypeProbableLeader(_lsm, _mailer, _logger);
         case "LeadershipRecAck":
             return new MessageTypeLeadershipRecAck(_lsm, _mailer, _logger);
         default:
-            return new MessageTypeLeaderAck(_logger);
+            return new MessageTypeLeaderAck(_lsm, _logger);
         }
 
     }

@@ -20,7 +20,7 @@ public class MessageTypeProbableLeader implements IMessageTypeHandler
     }
     public void handle(IMessage message)
     {
-      SimpleStringMessage msg = new SimpleStringMessage(ProcessHandle.current().pid() + "", message.sender(), " ", "LeadershipRecAck");
-      _mailer.send(msg);
+        SimpleStringMessage msg = new SimpleStringMessage(ProcessHandle.current().pid() + "", message.sender(), " ", "LeadershipRecAck");
+        _mailer.send(msg);
     }
 }

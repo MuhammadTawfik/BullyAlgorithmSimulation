@@ -7,4 +7,5 @@ public interface IMessage
     public String sender();
     public String receiver();
     public String type();
+    public java.util.Date date();
 }
