@@ -66,8 +66,8 @@ public class FileWorkerRegistry implements IWorkerRegistry
         }
         else
         {
+            stringList.remove(ProcessHandle.current().pid() + ""); // removing self from the list
             String[] processList = stringList.toArray(new String[] {});
-
             return processList;
         }
 
