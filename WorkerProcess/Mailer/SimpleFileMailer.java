@@ -17,8 +17,6 @@ public class SimpleFileMailer implements IMailerClient
     {
         _baseInboxDirectory = baseInboxDirectory;
         _inboxFilePath = _baseInboxDirectory + inboxID + ".inbox" ;
-        Inbox inbox = new Inbox(_inboxFilePath);
-        inbox.start();
     }
     public void send(IMessage message)
     {

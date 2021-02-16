@@ -18,10 +18,12 @@ public class Inbox implements Runnable
 {
 
     private String _inboxFilePath;
+    private IMessageHandler _msgHandler;
     private int timeToCheckInbox = 100;
 
-    public Inbox( String inboxFilePath)
+    public Inbox( String inboxFilePath, IMessageHandler msgHandler)
     {
+        _msgHandler = msgHandler;
         _inboxFilePath = inboxFilePath; // "/home/tawfik/BullyAlgorithmSimulation/data/mails/18740.inbox";
     }
 
@@ -80,6 +82,7 @@ public class Inbox implements Runnable
                 {
                     msgObject =  new SimpleStringMessage(msg[1], "", msg[3], msg[2]);
                 }
+                _msgHandler.handle(msgObject);
                 // System.out.println(msgObject.toString());
             }
             try

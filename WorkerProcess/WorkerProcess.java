@@ -1,6 +1,5 @@
 import Logger.SimpleFileLogger;
-import Mailer.SimpleFileMailer;
-import Mailer.SimpleStringMessage;
+import Mailer.*;
 import WorkerProcessRegistry.FileWorkerRegistry;
 import LeaderStatusManagment.*;
 import MessageHandler.*;
@@ -19,14 +18,16 @@ public class WorkerProcess
 
         // SimpleStringMessage message = new SimpleStringMessage("anything for now", ProcessHandle.current().pid() + "" , "content", "test");
         // mailer.send(message);
+        String _inboxFilePath = "/home/tawfik/BullyAlgorithmSimulation/data/mails/" + ProcessHandle.current().pid() + ".inbox" ;
 
         registry.register(ProcessHandle.current().pid() + "");
-
+        Inbox inbox = new Inbox(_inboxFilePath, smh);
+        inbox.start();
         // System.out.println("eeeeeeeeee" + f.listRegistered());
         // (new SimpleMessageHandler(logger)).handle(message);
 
-        ElectionStarter k = new ElectionStarter(leaderStatusManager, logger, mailer, registry);
-        k.start();
+        // ElectionStarter k = new ElectionStarter(leaderStatusManager, logger, mailer, registry);
+        // k.start();
         // Thread t1 =new Thread(k);
         // t1.start();
     }
